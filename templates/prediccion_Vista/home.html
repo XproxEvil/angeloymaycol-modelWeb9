@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Ventas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Introduzca Año y Mes para la Predicción</h1>
+        <form method="post" action="{% url 'predict' %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="año">Año:</label>
+                <input type="text" class="form-control" id="año" name="año" required>
+                <div class="invalid-feedback">
+                    Por favor, ingrese un año válido.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mes">Mes:</label>
+                <select class="form-control" id="mes" name="mes" required>
+                    <option value="" selected disabled>Seleccione un mes</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, seleccione un mes.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Predecir</button>
+        </form>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado de la Predicción</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Resultado de la Predicción</h1>
+        <p>Año: {{ año }}</p>
+        <p>Mes: {{ mes }}</p>
+        <h2>Predicción de Ventas:</h2>
+        <p>Total del mes: {{ prediccion_total_mes }}</p>
+        <h2>Gráfico de Predicciones</h2>
+        <canvas id="prediccionChart"></canvas>
+         <a href="{% url 'home' %}">Volver</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const predicciones = JSON.parse('{{ predicciones|escapejs }}');
+            const dias = Object.keys(predicciones).map(dia => parseInt(dia));
+            const ventas = Object.values(predicciones);
+
+            const ctx = document.getElementById('prediccionChart').getContext('2d');
+            const prediccionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dias,
+                    datasets: [{
+                        label: 'Ventas',
+                        data: ventas,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Día'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Ventas'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
