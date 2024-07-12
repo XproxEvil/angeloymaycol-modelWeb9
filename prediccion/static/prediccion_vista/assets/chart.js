@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 borderColor: 'rgba(46, 66, 201)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 fill: false,
+                pointBackgroundColor: 'white',
+                pointBorderColor: 'white',
+                pointRadius: 3,
             }]
         },
         options: {
