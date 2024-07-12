@@ -1,3 +1,74 @@
-.intro {
-    margin-top: 15px;
+body{
+background-color: #121212;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+h1 {
+    margin-bottom: 16px;
+    color: white;
+}
+
+div .formulario {
+    border: 1px solid #262626;
+    border-radius: 15px;
+}
+
+label{
+    color: white;
+}
+
+input, #año {
+    background-color: #1b1b1b;
+    color: white;
+    border: 1px solid #0d2c4d;
+}
+
+.anio {
+    margin-bottom: 25px;
+}
+
+input:focus, #año:focus{
+    border: none;
+}
+
+div select, #mes {
+    color: white;
+    background-color: #1b1b1b;
+    border: 1px solid #0d2c4d;
+}
+
+.titulo{
+    margin-bottom: 30px;
+}
+
+
+h3 {
+    color: #9c9c9c;
+}
+
+.btn {
+    margin-top: 10px;
+    background-color: #0d2c4d;
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #0d2c4d;
+    transform: scale(1.1);
+    border: none;
+}
+
+
+footer {
+    font-size: 14px;
+    color: #9c9c9c;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
