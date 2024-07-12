@@ -13,7 +13,7 @@
         <picture>
             <img src="{% static 'prediccion_vista/assets/logo.png' %}" alt="logo">
         </picture>
-        <h3 class="intro">Introduzca Año y Mes para la Predicción</h3>
+        <h3 class="intro">Introduzca Fecha la Predicción</h3>
         <form method="post" action="{% url 'predict' %}" class="needs-validation" novalidate>
             {% csrf_token %}
             <div class="form-group">
