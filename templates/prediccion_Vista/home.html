@@ -1,69 +1,88 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
     <title>Predicción de Ventas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'prediccion_vista/assets/home.css' %}">
-    <link rel="shortcut icon" href="{% static 'prediccion_vista/assets/gim.ico' %}" type="image/x-icon">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'prediccion_vista/assets/home.css' %}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static 'prediccion_vista/assets/gim.ico' %}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{$ static 'prediccion_vista/assets/home.js'}"
+    />
+  </head>
+  <body>
     <div class="container mt-4">
-        <picture>
-            <img src="{% static 'prediccion_vista/assets/logo.png' %}" alt="logo">
-        </picture>
-        <h3 class="intro">Introduzca Año y Mes para la Predicción</h3>
-        <form method="post" action="{% url 'predict' %}" class="needs-validation" novalidate>
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="año">Año:</label>
-                <input type="text" class="form-control" id="año" name="año" required>
-                <div class="invalid-feedback">
-                    Por favor, ingrese un año válido.
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="mes">Mes:</label>
-                <select class="form-control" id="mes" name="mes" required>
-                    <option value="" selected disabled>Seleccione un mes</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
-                </select>
-                <div class="invalid-feedback">
-                    Por favor, seleccione un mes.
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Predecir</button>
-        </form>
-    </div>
+      <header>
+          <img
+            src="{% static 'prediccion_vista/assets/logo-white.png' %}"
+            alt="logo"
+          />
+      </header>
 
-    <script>
-        (function() {
-            'use strict';
-            window.addEventListener('load', function() {
-                var forms = document.getElementsByClassName('needs-validation');
-                Array.prototype.filter.call(forms, function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
-</body>
+      <main>
+        
+        <h1>Bienvenido de Nuevo</h1>
+      <div class="container formulario py-4">
+      <h3 class="titulo">Nueva predicción</h3>
+      <form
+        method="post"
+        action="{% url 'predict' %}"
+        class="needs-validation"
+        novalidate
+      >
+        {% csrf_token %}
+        <div class="form-group anio">
+          <label for="año">Año:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="año"
+            name="año"
+            placeholder="Ingrese el año"
+            required            
+          />
+          <div class="invalid-feedback">Por favor, ingrese un año válido.</div>
+        </div>
+        <div class="form-group">
+          <label for="mes">Mes:</label>
+          <select class="form-control" id="mes" name="mes" required>
+            <option value="" selected disabled>Seleccione un mes</option>
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+          </select>
+          <div class="invalid-feedback">Por favor, seleccione un mes.</div>
+        </div>
+        <button type="submit" class="btn btn-primary rounded">Predecir</button>
+      </form>
+    </div>
+    </div>
+</main>
+    <footer>
+      <div class="container mt-8">
+        <p>Desarrollado por Telles | Valeriano | Cuno</p>
+      </div>
+    </footer>
+  </body>
 </html>
