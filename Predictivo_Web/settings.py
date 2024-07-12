@@ -13,7 +13,7 @@ SECRET_KEY = 'tu-secreto-aqui'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = [ '.vercel.app', 'localhost', '127.0.0.1', '[::1]']
 
 # Application definition
 INSTALLED_APPS = [
