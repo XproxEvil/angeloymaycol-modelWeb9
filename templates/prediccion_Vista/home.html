@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Predicción de Ventas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'prediccion_vista/assets/home.css' %}">
+    <link rel="shortcut icon" href="{% static 'prediccion_vista/assets/gim.ico' %}" type="image/x-icon">
 </head>
 <body>
-    {% load static %}
     <div class="container mt-4">
         <picture>
             <img src="{% static 'prediccion_vista/assets/logo.png' %}" alt="logo">
