@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Resultado de la Predicción</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link
+      rel="stylesheet" href="{% static 'prediccion_vista/assets/result.css' %}"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -32,8 +35,8 @@
                     datasets: [{
                         label: 'Ventas',
                         data: ventas,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 102, 192)',
+                        backgroundColor: 'rgb(51, 0, 0)',
                         fill: false,
                     }]
                 },
