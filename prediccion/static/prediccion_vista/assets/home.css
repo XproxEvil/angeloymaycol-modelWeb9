@@ -58,7 +58,7 @@ h3 {
     margin-top: 10px;
     background-color: #0d2c4d;
     transition: transform 0.3s ease;
-    border: none;
+    border: transparent;
     border-radius: 15px;
     padding-left: 20px; 
     padding-right: 20px; 
@@ -66,7 +66,7 @@ h3 {
 
 .btn:hover {
     background-color: #113c69;
-    border: none;
+    border: transparent;
 }
 
 

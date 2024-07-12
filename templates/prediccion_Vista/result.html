@@ -1,21 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Resultado de la Predicción</title>
+    <title>Predicción</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'prediccion_vista/assets/result.css' %}">
+    <link rel="shortcut icon" href="{% static 'prediccion_vista/assets/gim.ico' %}" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Resultado de la Predicción</h1>
-        <p>Año: {{ año }}</p>
-        <p>Mes: {{ mes }}</p>
-        <h2>Predicción de Ventas:</h2>
-        <p>Total del mes: S/. {{ prediccion_total_mes }}</p>
-        <h2>Gráfico de Predicciones</h2>
-        <canvas id="prediccionChart"></canvas>
-         <a href="{% url 'home' %}">Volver</a>
+    <div class="d-flex flex-column min-vh-100">
+        <div class="container mt-5 flex-grow-1">
+            <header>
+                <img src="{% static 'prediccion_vista/assets/logo-white.png' %}" alt="logo">
+            </header>
+            <main>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h1 class="mb-0">Resultados</h1>
+                    <a href="{% url 'home' %}" class="btn btn-primary">Volver</a>
+                </div>
+                <p>Año: {{ año }}</p>
+                <p>Mes: {{ mes }}</p>
+                <h4>Ventas:</h4>
+                <p>Total del mes: S/. {{ prediccion_total_mes|floatformat:2 }}</p>
+                <h2>Gráfico de Predicciones</h2>
+                <canvas id="prediccionChart"></canvas>
+            </main>
+        </div>
+        <footer>
+            <div class="container">
+                <p>Desarrollado por Telles | Valeriano | Cuno</p>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -32,7 +49,7 @@
                     datasets: [{
                         label: 'Ventas',
                         data: ventas,
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderColor: 'rgba(46, 66, 201)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         fill: false,
                     }]
@@ -43,13 +60,15 @@
                         x: {
                             title: {
                                 display: true,
-                                text: 'Día'
+                                text: 'Días',
+                                color: 'white'
                             }
                         },
                         y: {
                             title: {
                                 display: true,
-                                text: 'Ventas'
+                                text: 'Ventas',
+                                color: 'white'
                             },
                             beginAtZero: true
                         }
