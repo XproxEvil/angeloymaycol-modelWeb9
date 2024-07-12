@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{% static 'prediccion_vista/assets/result.css' %}">
     <link rel="shortcut icon" href="{% static 'prediccion_vista/assets/gim.ico' %}" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'prediccion_vista/assets/chart.js' %}"></script>
+    <script>
+        const predicciones = JSON.parse('{{ predicciones|escapejs }}');
+    </script>
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100">
@@ -20,11 +24,10 @@
                     <h1 class="mb-0">Resultados</h1>
                     <a href="{% url 'home' %}" class="btn btn-primary">Volver</a>
                 </div>
-                <p>Año: {{ año }}</p>
-                <p>Mes: {{ mes }}</p>
-                <h4>Ventas:</h4>
-                <p>Total del mes: S/. {{ prediccion_total_mes|floatformat:2 }}</p>
-                <h2>Gráfico de Predicciones</h2>
+                <p><strong>Año: </strong>{{ año }}</p>
+                <p><strong>Mes: </strong>{{ mes }}</p>
+                <p><strong>Total del mes:</strong> S/. {{ prediccion_total_mes|floatformat:2 }}</p>
+                <h2 style="margin-top: 67px">Gráfico de Predicciones</h2>
                 <canvas id="prediccionChart"></canvas>
             </main>
         </div>
@@ -34,48 +37,5 @@
             </div>
         </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const predicciones = JSON.parse('{{ predicciones|escapejs }}');
-            const dias = Object.keys(predicciones).map(dia => parseInt(dia));
-            const ventas = Object.values(predicciones);
-
-            const ctx = document.getElementById('prediccionChart').getContext('2d');
-            const prediccionChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: dias,
-                    datasets: [{
-                        label: 'Ventas',
-                        data: ventas,
-                        borderColor: 'rgba(46, 66, 201)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        fill: false,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Días',
-                                color: 'white'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Ventas',
-                                color: 'white'
-                            },
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>

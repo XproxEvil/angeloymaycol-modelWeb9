@@ -17,6 +17,8 @@ p {
     color: white;
 }
 
+
+
 main {
     background-color: #1b1b1b;
     border-radius: 15px;
@@ -31,13 +33,19 @@ canvas {
 }
 
 .btn-primary {
+    width: 100%; 
+    margin-top: 10px;
     background-color: #0d2c4d;
+    transition: transform 0.3s ease;
     border: transparent;
-    border-radius: 7px;
+    border-radius: 15px;
+    padding-left: 20px; 
+    padding-right: 20px; 
 }
 
 .btn-primary:hover {
-    background-color: #0a2236;
+    background-color: #113c69;
+    border: transparent;
 }
 
 footer {
