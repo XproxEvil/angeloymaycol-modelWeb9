@@ -1,13 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Predicción de Ventas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'prediccion_vista/assets/home.css' %}">
+    <link rel="shortcut icon" href="{% static 'prediccion_vista/assets/gim.ico' %}" type="image/x-icon">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Introduzca Año y Mes para la Predicción</h1>
+    <div class="container mt-4">
+        <picture>
+            <img src="{% static 'prediccion_vista/assets/logo.png' %}" alt="logo">
+        </picture>
+        <h3 class="intro">Introduzca Año y Mes para la Predicción</h3>
         <form method="post" action="{% url 'predict' %}" class="needs-validation" novalidate>
             {% csrf_token %}
             <div class="form-group">
